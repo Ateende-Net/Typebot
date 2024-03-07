@@ -9,7 +9,7 @@ const AboutPage = () => {
   return (
     <div className="flex flex-col items-center w-full overflow-x-hidden ">
       <Header />
-      <SocialMetaTags currentUrl={`https://www.typebot.io/about`} />
+      <SocialMetaTags currentUrl={`https://www.ateende.net/about`} />
       <Stack
         spacing={10}
         mx="auto"
@@ -19,7 +19,7 @@ const AboutPage = () => {
         textAlign="justify"
       >
         <Flex w="full">
-          <Heading as="h1">Why Typebot?</Heading>
+          <Heading as="h1">Why Ateende?</Heading>
         </Flex>
         <Text>
           I&apos;m Baptiste, 28 years old. I&apos;m a software product engineer.
@@ -27,7 +27,7 @@ const AboutPage = () => {
           interfaces.
         </Text>
         <Text>
-          This is why I&apos;ve started working on Typebot, 3 years ago. It is
+          This is why I&apos;ve started working on Ateende, 3 years ago. It is
           my attempt on a great chatbot builder.
         </Text>
         <Text>
@@ -86,13 +86,13 @@ const AboutPage = () => {
           you can analyse your results so that you can incrementally improve
           your bots.
         </Text>
-        <Text>This is what Typebot provides.</Text>
+        <Text>This is what Ateende provides.</Text>
         <Text>
-          I&apos;ve built this tool by focusing on user empowering. Typebot is
+          I&apos;ve built this tool by focusing on user empowering. Ateende is
           extremely flexible and provides the building blocks to create great
           chat experiences. Often times, the more freedom you give to the user,
           the less intuitive the tool become. I try not to fall into that trap
-          with Typebot by providing the best defaults for each option. I also
+          with Ateende by providing the best defaults for each option. I also
           try to help you learn master the tool with good templates and video
           tutorials.
         </Text>

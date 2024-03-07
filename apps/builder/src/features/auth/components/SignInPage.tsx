@@ -35,9 +35,9 @@ export const SignInPage = ({ type }: Props) => {
       {type === 'signin' ? (
         <Text>
           {t('auth.signin.noAccountLabel.preLink')}{' '}
-          <TextLink href="/register">
+          {/*<TextLink href="/register">
             {t('auth.signin.noAccountLabel.link')}
-          </TextLink>
+          </TextLink>*/}
         </Text>
       ) : (
         <Text>

@@ -24,10 +24,10 @@ test.describe.parallel('Theme page', () => {
       // Branding
       await page.getByRole('button', { name: 'Global' }).click()
       await expect(
-        page.locator('a:has-text("Made with Typebot")')
+        page.locator('a:has-text("Feito com Ateende")')
       ).toHaveAttribute('href', 'https://www.typebot.io/?utm_source=litebadge')
       await page.click('text="Show Typebot brand"')
-      await expect(page.locator('a:has-text("Made with Typebot")')).toBeHidden()
+      await expect(page.locator('a:has-text("Feito com Ateende")')).toBeHidden()
 
       // Font
       await page.getByRole('textbox').fill('Roboto Slab')

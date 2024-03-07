@@ -31,25 +31,23 @@ export const GuestInvitationEmail = ({
     <Head />
     <MjmlBody width={600}>
       <MjmlSection padding="0">
-        <MjmlColumn>
+         {/*<MjmlColumn>
           <HeroImage src={`${env.NEXTAUTH_URL}/images/invitationBanner.png`} />
-        </MjmlColumn>
+        </MjmlColumn>*/}
       </MjmlSection>
       <MjmlSection padding="0 24px" cssClass="smooth">
         <MjmlColumn>
           <Text>
-            You have been invited by {hostEmail} to collaborate on his typebot{' '}
-            <strong>{typebotName}</strong>.
+            Você foi convidado pelo Ateende para seu novo Bot <strong>{typebotName}</strong>.
           </Text>
           <Text>
-            From now on you will see this typebot in your dashboard under his
-            workspace &quot;{workspaceName}&quot; 👍
+              De agora em diante você verá este bot em seu painel 👍
           </Text>
           <Text>
-            Make sure to log in as <i>{guestEmail}</i>.
+            Certifique-se de fazer login como <i>{guestEmail}</i>.
           </Text>
           <MjmlSpacer height="24px" />
-          <Button link={url}>Go to typebot</Button>
+          <Button link={url}>Ir para o bot</Button>
         </MjmlColumn>
       </MjmlSection>
     </MjmlBody>
@@ -62,6 +60,6 @@ export const sendGuestInvitationEmail = ({
 }: Pick<SendMailOptions, 'to'> & ComponentProps<typeof GuestInvitationEmail>) =>
   sendEmail({
     to,
-    subject: "You've been invited to collaborate 🤝",
+    subject: "Você foi convidado por Ateend.Net 🤝",
     html: render(<GuestInvitationEmail {...props} />).html,
   })

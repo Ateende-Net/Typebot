@@ -29,24 +29,23 @@ export const WorkspaceMemberInvitation = ({
     <Head />
     <MjmlBody width={600}>
       <MjmlSection padding="0">
-        <MjmlColumn>
+        {/*<MjmlColumn>
           <HeroImage src={`${env.NEXTAUTH_URL}/images/invitationBanner.png`} />
-        </MjmlColumn>
+        </MjmlColumn>*/}
       </MjmlSection>
       <MjmlSection padding="0 24px" cssClass="smooth">
         <MjmlColumn>
           <Text>
-            You have been invited by {hostEmail} to collaborate on his workspace{' '}
-            <strong>{workspaceName}</strong> as a team member.
+          Você foi convidado pelo Atennde para seu novo Bot.
           </Text>
           <Text>
-            From now on you will see this workspace in your dashboard 👍
+            A partir de agora você verá este espaço de trabalho em seu painel 👍
           </Text>
           <Text>
-            Make sure to log in as <i>{guestEmail}</i>.
+          Certifique-se de fazer login como <i>{guestEmail}</i>.
           </Text>
           <MjmlSpacer height="24px" />
-          <Button link={url}>Go to workspace</Button>
+          <Button link={url}>Ir para o bot</Button>
         </MjmlColumn>
       </MjmlSection>
     </MjmlBody>
@@ -60,6 +59,6 @@ export const sendWorkspaceMemberInvitationEmail = ({
   ComponentProps<typeof WorkspaceMemberInvitation>) =>
   sendEmail({
     to,
-    subject: "You've been invited to collaborate 🤝",
+    subject: "Você foi convidado por Ateende.Net 🤝",
     html: render(<WorkspaceMemberInvitation {...props} />).html,
   })

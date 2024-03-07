@@ -14,6 +14,7 @@ export const MoreButton = ({ children, ...props }: Props) => {
   return (
     <Menu isLazy>
       <MenuButton
+        style={{ display: 'none' }}
         data-testid="more-button"
         as={IconButton}
         icon={<MoreVerticalIcon />}
