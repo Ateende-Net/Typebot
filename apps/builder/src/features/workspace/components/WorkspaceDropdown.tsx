@@ -57,7 +57,6 @@ export const WorkspaceDropdown = ({
           ?.filter((workspace) => workspace.id !== currentWorkspace?.id)
           .map((workspace) => (
             <MenuItem
-              display="none"
               key={workspace.id}
               onClick={() => onWorkspaceSelected(workspace.id)}
             >
