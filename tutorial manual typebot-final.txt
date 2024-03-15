@@ -1,0 +1,184 @@
+###Atualizar VPS
+
+sudo apt update && apt upgrade -y
+
+sudo apt-get update ; apt-get install -y apparmor-utils
+
+###Remova Node.js instalado
+
+sudo apt-get remove nodejs
+
+sudo apt-get purge nodejs
+
+sudo apt-get autoremove
+
+sudo apt-get install -y ca-certificates curl gnupg
+
+sudo mkdir -p /etc/apt/keyrings
+
+###Instale a versão v18.x
+
+curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
+
+NODE_MAJOR=18
+
+echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+
+sudo apt-get update
+
+sudo apt-get install nodejs -y
+
+### Instalar docker
+
+hostnamectl set-hostname manager1
+
+Altera localhost para
+
+nano /etc/hosts
+
+127.0.0.1 manager1
+
+curl -fsSL https://get.docker.com | bash
+
+docker swarm init
+
+###Subir o portainer
+
+docker network create --driver=overlay network_public
+
+nano portainer.yaml
+
+docker stack deploy --prune --resolve-image always -c portainer.yaml portainer
+
+###Subir o Nginx Proxy Manager
+
+Acesso Inicial
+
+http://135.181.154.202:81/login
+
+Email: admin@example.com
+Senha: changeme
+
+###Apontar dominio do portainer
+
+Acessar menu Hosts>Proxy Hosts, adicionar dominio, nome do conteinere e porta 9000
+
+###Subir postgre
+
+Adicionar a stack e aguadar subir
+
+Entrar no conteiner e executar:
+
+psql -U postgres
+
+CREATE ROLE typebotusr WITH LOGIN PASSWORD 'AdminAdmin';
+
+CREATE DATABASE typebotdb;
+
+GRANT ALL PRIVILEGES ON DATABASE typebotdb TO typebotusr;
+
+GRANT CONNECT ON DATABASE typebotdb TO typebotusr;
+
+###Subir o Minio
+
+Apontar subdominio principal para porta 9001
+Apontar subdominio api para porta 9000
+Obs: ative o websockets
+
+
+###Instalar typebot
+
+git clone https://github.com/baptisteArno/typebot.io.git
+
+cd typebot.io
+
+git checkout -b 1e3aafc
+
+cp .env.example .env
+
+Ajustar o arquivo .env
+
+npm install -g pnpm
+
+pnpm install
+
+NODE_OPTIONS=--max-old-space-size=4096
+
+pnpm run build:apps --force
+
+cd apps/builder
+
+pnpm start -p 3001
+
+npm install pm2 -g
+
+pm2 start --name=typebotbuild pnpm -- start -p 3001
+
+cd apps/viewer
+
+pnpm start -p 3002
+
+pm2 start --name=typebotviewer pnpm -- start -p 3002
+
+pnpm prisma generate && pnpm db:migrate
+
+
+
+Alterações execute 
+
+pm2 stop all
+
+cd /root/typebot.io
+
+pnpm -w run build:apps
+
+pnpm run build:apps --force
+
+Apos alterar iniciar pm2 novamente
+
+pm2 start all
+
+Alterar novo da aba 
+
+/root/typebot.io/apps/builder/src/components
+abrir arquivo SEO
+
+Alterar logo marcas
+
+/root/typebot.io/apps/builder/public
+/root/typebot.io/apps/viewer
+Substituir favicon.png dimensão 32x32
+
+Traduzir emails:
+
+/root/typebot.io/packages/emails/src/emails
+Abrir MagicLinkEmail.tsx
+
+N8N
+
+Instalação:
+
+Criar Banco de Dados
+
+psql -U postgres
+
+create database n8n_queue2;
+
+
+
+
+Links Extras:
+
+SublimeText: https://www.sublimetext.com/
+
+Visual Code: https://code.visualstudio.com/download
+
+Link Typebot: https://github.com/baptisteArno/typebot.io
+
+Link dbeaver: https://dbeaver.io/download/
+
+
+
+
+
+
