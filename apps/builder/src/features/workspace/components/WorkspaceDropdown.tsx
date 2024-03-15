@@ -52,7 +52,7 @@ export const WorkspaceDropdown = ({
           <ChevronLeftIcon transform="rotate(-90deg)" />
         </HStack>
       </MenuButton>
-      <MenuList style={{ display: 'none' }}>
+      <MenuList>
         {workspaces
           ?.filter((workspace) => workspace.id !== currentWorkspace?.id)
           .map((workspace) => (
