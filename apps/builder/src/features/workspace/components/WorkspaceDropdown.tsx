@@ -38,7 +38,7 @@ export const WorkspaceDropdown = ({
   const workspaces = data?.workspaces ?? []
 
   return 
-  
+  (
   {currentWorkspace.plan=="UNLIMETED" ? 
   (
     <Menu placement="bottom-end">
@@ -90,5 +90,5 @@ export const WorkspaceDropdown = ({
   )
   :
   ( <Menu></Menu>)
-          }
+          })
 }
