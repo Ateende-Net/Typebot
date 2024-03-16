@@ -84,7 +84,7 @@ export const WorkspaceDropdown = ({
         </MenuItem>
       </MenuList>
     </Menu>
-    : <View/>
+    : </View>
     }
   )
 }
