@@ -38,7 +38,7 @@ export const WorkspaceDropdown = ({
   const workspaces = data?.workspaces ?? []
 
   return (
-    <Menu placement="bottom-end" style={{ display: 'none' }}>
+    <Menu placement="bottom-end">
       <MenuButton as={Button} variant="outline" px="2">
         <HStack>
           {currentWorkspace && (
