@@ -38,6 +38,7 @@ export const WorkspaceDropdown = ({
   const workspaces = data?.workspaces ?? []
 
   return (
+    {workspace.plan == "UNLIMITED"?
     <Menu placement="bottom-end">
       <MenuButton as={Button} variant="outline" px="2">
         <HStack>
@@ -83,5 +84,7 @@ export const WorkspaceDropdown = ({
         </MenuItem>
       </MenuList>
     </Menu>
+    : <View/>
+    }
   )
 }
