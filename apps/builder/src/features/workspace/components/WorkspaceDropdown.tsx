@@ -71,9 +71,9 @@ export const WorkspaceDropdown = ({
               </HStack>
             </MenuItem>
           ))}
-        <MenuItem onClick={onCreateNewWorkspaceClick} icon={<PlusIcon />}>
+        {/* <MenuItem onClick={onCreateNewWorkspaceClick} icon={<PlusIcon />}>
           {t('workspace.dropdown.newButton.label')}
-        </MenuItem>
+        </MenuItem> */}
         <MenuItem
           onClick={onLogoutClick}
           icon={<LogOutIcon />}
