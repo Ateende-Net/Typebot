@@ -23,7 +23,7 @@ export const MagicLinkEmail = ({ url }: Props) => (
       <MjmlSection padding="0">
         <MjmlColumn>
           <HeroImage
-            src={`https://mininapi.chatbotconnect.com.br/typebot/Ateende.jpeg`}
+            src={`${env.NEXTAUTH_URL}/images/yourMagicLinkBanner.png`}
           />
         </MjmlColumn>
       </MjmlSection>

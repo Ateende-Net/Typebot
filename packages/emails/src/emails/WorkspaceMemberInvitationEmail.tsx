@@ -29,9 +29,9 @@ export const WorkspaceMemberInvitation = ({
     <Head />
     <MjmlBody width={600}>
       <MjmlSection padding="0">
-        <MjmlColumn>
-          <HeroImage src={`https://mininapi.chatbotconnect.com.br/typebot/Ateende.jpeg`} />
-        </MjmlColumn>
+        {/*<MjmlColumn>
+          <HeroImage src={`${env.NEXTAUTH_URL}/images/invitationBanner.png`} />
+        </MjmlColumn>*/}
       </MjmlSection>
       <MjmlSection padding="0 24px" cssClass="smooth">
         <MjmlColumn>

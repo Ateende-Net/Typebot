@@ -35,25 +35,30 @@ export const AlmostReachedChatsLimitEmail = ({
         <MjmlSection padding="0">
           <MjmlColumn>
             <HeroImage
-              src={`https://mininapi.chatbotconnect.com.br/typebot/Ateende.jpeg`}
+              src={`${env.NEXTAUTH_URL}/images/yourBotIsFlyingBanner.png`}
             />
           </MjmlColumn>
         </MjmlSection>
         <MjmlSection padding="0 24px" cssClass="smooth">
           <MjmlColumn>
-            <Text>Seus bots estão conversando muito. Que&apos;é incrível. 💙</Text>
+            <Text>Your bots are chatting a lot. That&apos;s amazing. 💙</Text>
             <Text>
-             Seu espaço de trabalho <strong>{workspaceName}</strong> usou{' '}
-              {usagePercent}% dos chats incluídos este mês. Uma vez que você bateu{' '}
-              {readableChatsLimit} bate-papos, você pagará conforme usar por bate-papos adicionais.
-
+              Your workspace <strong>{workspaceName}</strong> has used{' '}
+              {usagePercent}% of the included chats this month. Once you hit{' '}
+              {readableChatsLimit} chats, you will pay as you go for additional
+              chats.
             </Text>
             <Text>
-              Seu progresso pode ser monitorado no painel do seu espaço de trabalho
-              configurações.
+              Your progress can be monitored on your workspace dashboard
+              settings.
             </Text>
             <Text>
-            Lembre-se de que seu ciclo de faturamento termina e {readableResetDate}.
+              Check out the{' '}
+              <a href="https://typebot.io/pricing">pricing page</a> for
+              information about the pay as you go tiers.
+            </Text>
+            <Text>
+              As a reminder, your billing cycle ends on {readableResetDate}.
             </Text>
           </MjmlColumn>
         </MjmlSection>
@@ -69,6 +74,6 @@ export const sendAlmostReachedChatsLimitEmail = ({
   ComponentProps<typeof AlmostReachedChatsLimitEmail>) =>
   sendEmail({
     to,
-    subject: "Você está perto do limite de bate-papos",
+    subject: "You're close to your chats limit",
     html: render(<AlmostReachedChatsLimitEmail {...props} />).html,
   })
